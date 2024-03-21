@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{movie.img.url}}" width="300" height="300">
+
+        </div>
+
+<div class="col-md-6">
+    <h2>{{movie.name}}</h2>
+    <h3>{{movie.release_date}}</h3>
+    <h4>{{movie.actors}}</h4>
+    <h5>{{movie.desc}}</h5>
+    <h5>{{movie.category}}</h5>
+    <h5>{{movie.Review}}</h5>
+    <a class="btn btn-warning" href="{% url 'film:update' movie.id %}">update</a>
+    <a class="btn btn-danger" href="{% url 'film:delete' movie.id %}">Delete</a>
+
+
+
+</div>
+
+
+
+
+
+  </div>
+</div>
+<div class="col-md-6">
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="Review" placeholder="enter your review">
+        <input type="submit">
+    </form>
+</div>
+{% endblock %}
+
